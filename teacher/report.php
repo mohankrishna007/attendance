@@ -74,7 +74,7 @@ if($_SESSION['name']!='oasis')
       <input type="submit" name="sr_btn" value="Go!" >
 
     </form>
-
+<!-- 
     <h3>Mass Report</h3>
 
     <form method="post" action="">
@@ -95,7 +95,7 @@ if($_SESSION['name']!='oasis')
       <label>Date ( yyyy-mm-dd )</label>
       <input type="text" name="date">
       <input type="submit" name="sr_date" value="Go!" >
-    </form>
+    </form> -->
 
     <br>
 
@@ -108,7 +108,7 @@ if($_SESSION['name']!='oasis')
      $sr_id = $_POST['sr_id'];
      $course = $_POST['whichcourse'];
 
-     $single = mysqli_query($conn, "select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
+     $single = mysqli_query($conn,"select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
       $singleT= mysqli_query($conn, "select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
     //  $count_tot = mysql_num_rows($singleT);
   } 
@@ -118,7 +118,7 @@ if($_SESSION['name']!='oasis')
      $sdate = $_POST['date'];
      $course = $_POST['course'];
 
-     $all_query = mysqli_query($conn, "select * from attendance where reports.stat_date='$sdate' and reports.course = '$course'");
+     $all_query = mysqli_query($conn,"select * from attendance where reports.stat_date='$sdate' and reports.course = '$course'");
 
     }
     if(isset($_POST['sr_date'])){

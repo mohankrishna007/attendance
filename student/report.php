@@ -110,15 +110,15 @@ if($_SESSION['name']!='oasis')
      //query for searching respective ID
     //  $all_query = mysql_query("select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
     //  $count_tot = mysql_num_rows($all_query);
-     $all_query = mysql_query("select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
-     $singleT= mysql_query("select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
+     $all_query = mysqli_query($conn, "select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
+     $singleT= mysqli_query($conn, "select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
      $count_tot;
-     if ($row=mysql_fetch_row($singleT))
+     if ($row=mysqli_fetch_row($singleT))
      {
      $count_tot=$row[0];
      }
 
-     while ($data = mysql_fetch_array($all_query)) {
+     while ($data = mysqli_fetch_array($all_query)) {
        $i++;
       //  if($data['st_status'] == "Present"){
       //     $count_pre++;

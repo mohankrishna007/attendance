@@ -31,6 +31,8 @@ include('connect.php');
 
           //teachers data insertion to the database table "teachers"
           $res = mysqli_query($conn, "insert into teachers(tc_id,tc_name,tc_dept,tc_email,tc_course) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]','$_POST[tc_course]')");
+          $pass = $_POST['tc_name']."@123";
+          $teacher_acc = mysqli_query($conn, "insert into admininfo values('$_POST[tc_email]', '$pass', '$_POST[tc_email]', '$_POST[tc_name]', ' ', 'teacher')");
           $success_msg = "Teacher added successfully.";
     }
 

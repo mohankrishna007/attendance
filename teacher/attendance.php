@@ -152,7 +152,10 @@ if($_SESSION['name']!='oasis')
      $radio = 0;
      $batch = $_POST['whichbatch'];
      $all_query = mysqli_query($conn, "select * from students where students.st_batch = '$batch' order by st_id asc");
-
+     $count = mysqli_num_rows($all_query);
+     if($count == 0){
+       echo "No Record Found";
+     }
      while ($data = mysqli_fetch_array($all_query)) {
        $i++;
      ?>

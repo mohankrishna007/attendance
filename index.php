@@ -30,11 +30,11 @@ if(isset($_POST['login']))
 			header('location: teacher/index.php');
 		}
 
-		else if($row>0 &&  $_POST["type"] == 'student'){
-			session_start();
-			$_SESSION['name']="oasis";
-			header('location: student/index.php');
-		}
+		// else if($row>0 &&  $_POST["type"] == 'student'){
+		// 	session_start();
+		// 	$_SESSION['name']="oasis";
+		// 	header('location: student/index.php');
+		// }
 
 		else if($row>0 && $_POST["type"] == 'admin'){
 			session_start();
@@ -150,14 +150,14 @@ if(isset($error_msg))
 			<div class="form-group" class="radio">
 			<label for="input1" class="col-sm-3 control-label">Login As:</label>
 			<div class="col-sm-6">
-			  <label>
+			  <!-- <label>
 			    <input type="radio" name="type" id="optionsRadios1" value="student" checked> Student
-			  </label>
+			  </label> -->
 			  	  <label>
-			    <input type="radio" name="type" id="optionsRadios1" value="teacher"> Teacher
+			    <input type="radio" name="type" id="optionsRadios1" value="teacher" require> Teacher
 			  </label>
 			  <label>
-			    <input type="radio" name="type" id="optionsRadios1" value="admin"> Admin
+			    <input type="radio" name="type" id="optionsRadios1" value="admin" require> Admin
 			  </label>
 			</div>
 			</div>
@@ -168,8 +168,8 @@ if(isset($error_msg))
 	</div>
 </div>
 
-<p><strong><a href="reset.php" style="text-decoration:none;">Reset Password</a></strong></p>
-<p><strong><a href="signup.php" style="text-decoration:none;">Create New Account</a></strong></p>
+<!-- <p><strong><a href="reset.php" style="text-decoration:none;">Reset Password</a></strong></p>
+<p><strong><a href="signup.php" style="text-decoration:none;">Create New Account</a></strong></p> -->
 
 </center>
 </body>

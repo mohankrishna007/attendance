@@ -81,7 +81,10 @@ if($_SESSION['name']!='oasis')
      $i=0;
      
      $all_query = mysqli_query($conn, "select * from students where students.st_batch = '$srbatch' order by st_id asc ");
-     
+     $count = mysqli_num_rows($all_query);
+     if($count == 0){
+       echo "No Record Found";
+     }
      while ($data = mysqli_fetch_array($all_query)) {
        $i++;
      
